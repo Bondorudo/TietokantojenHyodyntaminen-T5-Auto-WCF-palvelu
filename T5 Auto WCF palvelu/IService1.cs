@@ -13,22 +13,14 @@ namespace T5_Auto_WCF_palvelu
     [ServiceContract]
     public interface IService1
     {
-        Service1 dbModel = new Service1();
-
         #region Yhteys Tietokantaan
         // Testaa Yhteys tietokantaan.
         [OperationContract]
-        public bool TestDatabaseConnection()
-        {
-            Console.WriteLine("Start Top: " + dbModel.top);
-            bool doesItWork = dbModel.connectDatabase();
-            Console.WriteLine("toimiiko connection? " + doesItWork);
-            return doesItWork;
-        }
+        bool TestDatabaseConnection(bool result);
 
         // Disconnect from database
         [OperationContract]
-        DataSet Disconnect();
+        void Disconnect();
         #endregion
 
         #region Tallenna Auto Tietokantaan
